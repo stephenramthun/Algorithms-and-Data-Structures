@@ -7,7 +7,14 @@ public class Shellsort {
 
         for (int gap : gaps) {
             for (int i = gap; i < array.length; i++) {
-                
+                int temp = array[i];
+                int j;
+
+                for (j = i; j >= gap && array[j - gap] > temp; j-= gap) {
+                    array[j] = array[j - gap];
+                }
+
+                array[j] = temp;
             }
         }
     }
