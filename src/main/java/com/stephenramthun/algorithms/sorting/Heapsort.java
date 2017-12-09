@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class Heapsort {
 
+    /**
+     * Sorts a given array of integers in ascending order.
+     *
+     * @param array     Array of integers to sort.
+     */
     public static void sort(int[] array) {
         int end = array.length - 1;
 

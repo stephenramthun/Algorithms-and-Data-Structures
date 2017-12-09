@@ -12,6 +12,11 @@ public class RadixSort {
     private static final int SORT_THRESHOLD = 50;
     private static final int MASK = (1 << DIGIT_SIZE) - 1;
 
+    /**
+     * Sorts a given array of integers in ascending order.
+     *
+     * @param array     Array of integers to sort.
+     */
     public static void sort(int[] array) {
         int max = maxValue(array);
 
