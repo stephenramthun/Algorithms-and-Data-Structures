@@ -7,13 +7,6 @@ import org.junit.jupiter.api.Test;
 class RadixSortTest {
 
     @Test
-    void preTest() {
-        int[] a = Utility.randomArray(100);
-        RadixSort.sort(a);
-    }
-
-    /*
-    @Test
     void testSorting() {
         int n = 1000;
         int r = 10;
@@ -38,5 +31,4 @@ class RadixSortTest {
             assertTrue(Utility.arePermutations(a, b));
         }
     }
-    */
 }
