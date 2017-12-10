@@ -28,6 +28,11 @@ public class BubbleSort {
         }
     }
 
+    /**
+     * Sorts a given array of objects in ascending order.
+     *
+     * @param array     Array of object to sort.
+     */
     public static void sort(Comparable[] array) {
         boolean sorted = false;
 
