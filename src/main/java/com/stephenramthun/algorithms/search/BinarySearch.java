@@ -34,6 +34,13 @@ public class BinarySearch {
         return false;
     }
 
+    /**
+     * Checks whether a given key exists in a sorted array.
+     *
+     * @param array     Array to search for key in. Assumed sorted.
+     * @param key       Key to search for in aray.
+     * @return          True if key is in array.
+     */
     public static boolean contains(Comparable[] array, Comparable key) {
         int left  = 0;
         int right = array.length - 1;
