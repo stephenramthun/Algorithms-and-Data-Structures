@@ -51,7 +51,9 @@ public class InsertionSort {
                 array[j + 1] = array[j];
                 j--;
 
-                comparison = array[j].compareTo(temp);
+                if (j >= 0) {
+                    comparison = array[j].compareTo(temp);
+                }
             }
 
             array[j + 1] = temp;
