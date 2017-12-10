@@ -1,6 +1,7 @@
 package com.stephenramthun.algorithms.sorting;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,11 @@ class InsertionSortTest {
             InsertionSort.sort(array);
             assertTrue(Utility.isSorted(array));
         }
+
+        String[] strings = {"cbc", "abc", "bbc", "ccd", "ccb", "bbc", "aab"};
+        assertFalse(Utility.isSorted(strings));
+        InsertionSort.sort(strings);
+        assertTrue(Utility.isSorted(strings));
     }
 
     @Test
