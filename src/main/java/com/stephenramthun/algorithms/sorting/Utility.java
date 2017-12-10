@@ -41,6 +41,19 @@ class Utility {
         return true;
     }
 
+    static boolean isSorted(Comparable[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            @SuppressWarnings("unchecked")
+            int comparison = array[i].compareTo(array[i + 1]);
+
+            if (comparison > 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     // Assumes non-negative values
     static boolean arePermutations(int[] a, int[] b) {
         if (a.length != b.length) {
