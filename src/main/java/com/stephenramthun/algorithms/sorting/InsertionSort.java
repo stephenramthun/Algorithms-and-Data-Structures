@@ -27,7 +27,34 @@ public class InsertionSort {
                 j--;
             }
 
-            array[j + 1]  = temp;
+            array[j + 1] = temp;
+        }
+    }
+
+    /**
+     * Sorts a given array of objects in ascending order.
+     *
+     * @param array     Array of objects to sort.
+     */
+    public static void sort(Comparable[] array) {
+        sort(array, 0, array.length);
+    }
+
+    @SuppressWarnings("unchecked")
+    static void sort(Comparable[] array, int left, int right) {
+        for (int i = left + 1; i < right; i++) {
+            Comparable temp = array[i];
+            int j = i - 1;
+            int comparison = array[j].compareTo(temp);
+
+            while (j >= 0 && comparison > 0) {
+                array[j + 1] = array[j];
+                j--;
+
+                comparison = array[j].compareTo(temp);
+            }
+
+            array[j + 1] = temp;
         }
     }
 }
