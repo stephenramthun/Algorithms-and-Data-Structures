@@ -27,7 +27,7 @@ public class LinkedList<T extends Comparable> {
      * @param item  Item to insert into the new list.
      */
     public LinkedList(T item) {
-        head = new Node(value);
+        head = new Node(item);
         tail = head;
         size = 1;
     }
