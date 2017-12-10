@@ -14,6 +14,12 @@ class Utility {
         array[b] = temp;
     }
 
+    static void swap(Comparable[] array, int a, int b) {
+        Comparable temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
+    }
+
     static int[] randomArray(int n) {
         Random rand = new Random();
         int[] array = new int[n];
