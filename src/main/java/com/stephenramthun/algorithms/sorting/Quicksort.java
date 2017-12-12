@@ -21,6 +21,11 @@ public class Quicksort {
         sort(array, 0, array.length - 1);
     }
 
+    /**
+     * Sorts a given array of objects in ascending order.
+     *
+     * @param array     Array of objects to sort.
+     */
     public static void sort(Comparable[] array) {
         sort(array, 0, array.length - 1);
     }
