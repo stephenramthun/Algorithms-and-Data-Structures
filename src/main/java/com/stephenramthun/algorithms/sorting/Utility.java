@@ -31,6 +31,32 @@ class Utility {
         return array;
     }
 
+    static String[] randomStringArray(int n) {
+        Random rand      = new Random();
+        String[] array   = new String[n];
+        int stringLength = 10;
+
+        for (int i = 0; i < n; i++) {
+            array[i] = randomString(stringLength);
+        }
+
+        return array;
+    }
+
+    static String randomString(int n) {
+        StringBuilder sb = new StringBuilder();
+        Random rand      = new Random();
+        int low          = 97;  // a
+        int high         = 123; // z
+
+        for (int i = 0; i < n; i++) {
+            char randomChar = (char)(low + rand.nextInt(high - low));
+            sb.append(randomChar);
+        }
+
+        return sb.toString();
+    }
+
     static boolean isSorted(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
