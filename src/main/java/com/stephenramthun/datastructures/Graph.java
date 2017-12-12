@@ -1,8 +1,6 @@
 package com.stephenramthun.datastructures;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Arrays;
 
 /**
  * Implementation of a generic Graph data structure.
@@ -155,24 +153,5 @@ public class Graph<V extends Comparable> {
      */
     public int size() {
         return vertices.size();
-    }
-
-
-    class Vertex<V> {
-        V value;
-        HashSet<Vertex> edges;
-
-        Vertex(V value) {
-            this.value = value;
-            this.edges = new HashSet<>();
-        }
-
-        void addEdge(Vertex v) {
-            edges.add(v);
-        }
-
-        boolean hasEdge(Vertex v) {
-            return edges.contains(v);
-        }
     }
 }
