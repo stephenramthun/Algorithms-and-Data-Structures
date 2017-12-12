@@ -2,6 +2,13 @@ package com.stephenramthun.algorithms.sorting;
 
 import java.util.Arrays;
 
+/**
+ * Implementation of a heap sort algorithm.
+ * Builds a heap by rearranging objects in an array so that they conform to the
+ * properties of a heap structure, and then sorts the array in ascending order
+ * by taking out the smallest object one at a time.
+ */
+
 public class Heapsort {
 
     /**
