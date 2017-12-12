@@ -4,6 +4,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Arrays;
 
+/**
+ * Implementation of a generic Graph data structure.
+ * Supports both directed/non-directed and weighted/unweighted graphs.
+ *
+ * @author Stephen Ramthun
+ */
+
 public class Graph<V extends Comparable> {
 
     private boolean directed;

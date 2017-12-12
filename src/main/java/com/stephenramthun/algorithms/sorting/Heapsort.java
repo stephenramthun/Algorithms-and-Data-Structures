@@ -8,6 +8,8 @@ import java.util.Arrays;
  * properties of a heap structure, and then sorts the array in ascending order
  * by taking out the largest object one at a time and placing it at the end of
  * the array.
+ *
+ * @author Stephen Ramthun
  */
 
 public class Heapsort {
