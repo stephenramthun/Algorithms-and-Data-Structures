@@ -74,18 +74,16 @@ public class Quicksort {
         int j = right + 1;
 
         while (i < j) {
-            int comparison = array[i].compareTo(pivot);
+            int comparison;
 
             do {
-                comparison = array[i].compareTo(pivot);
                 i++;
-            } while (comparison > 0);
-
-            comparison = array[j].compareTo(pivot);
+                comparison = array[i].compareTo(pivot);
+            } while (comparison < 0);
 
             do {
-                comparison = array[j].compareTo(pivot);
                 j--;
+                comparison = array[j].compareTo(pivot);
             } while (comparison > 0);
 
             if (i < j) {

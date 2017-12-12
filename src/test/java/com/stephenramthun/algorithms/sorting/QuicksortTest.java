@@ -16,6 +16,12 @@ class QuicksortTest {
             Quicksort.sort(array);
             assertTrue(Utility.isSorted(array));
         }
+
+        for (int i = 0; i < r; i++) {
+            String[] array = Utility.randomStringArray(n);
+            Quicksort.sort(array);
+            assertTrue(Utility.isSorted(array));
+        }
     }
 
     @Test
