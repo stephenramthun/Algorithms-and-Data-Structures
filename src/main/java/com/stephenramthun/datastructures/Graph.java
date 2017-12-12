@@ -96,6 +96,21 @@ public class Graph<V extends Comparable> {
         return true;
     }
 
+    public void removeEdge(V v1, V v2) {
+        if (!contains(v1) || !contains(v2)) {
+            return;
+        }
+
+        Vertex vertex1 = vertices.get(v1);
+        Vertex vertex2 = vertices.get(v2);
+
+        vertex1.removeEdge(vertex2);
+
+        if (!directed) {
+            vertex2.removeEdge(vertex1);
+        }
+    }
+
     /**
      * Checks if the graph has an edge between two vertices.
      * @param v1    The out-vertex of the edge.
