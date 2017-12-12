@@ -160,7 +160,7 @@ public class Graph<V extends Comparable> {
 
     class Vertex<V> {
         V value;
-        HashMap<Vertex> edges;
+        HashSet<Vertex> edges;
 
         Vertex(V value) {
             this.value = value;
