@@ -73,4 +73,24 @@ class GraphTest {
         assertFalse(graph.contains(0));
         assertFalse(graph.contains(Integer.MAX_VALUE));
     }
+
+    @Test
+    void testRemoval() {
+        int n = 10;
+        int expectedSize = n;
+        Integer[] values = new Integer[n];
+
+        for (int i = 0; i < n; i++) {
+            values[i] = i;
+        }
+
+        Graph<Integer> graph = new Graph<Integer>(values);
+        assertEquals(expectedSize, graph.size());
+
+        for (int i = 0; i < n; i++) {
+            graph.remove(i);
+            assertEquals(--expectedSize, graph.size());
+            assertFalse(graph.contains(i));
+        }
+    }
 }

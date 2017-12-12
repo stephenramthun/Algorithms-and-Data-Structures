@@ -1,6 +1,7 @@
 package com.stephenramthun.datastructures;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Implementation of a generic Graph data structure.
@@ -68,6 +69,25 @@ public class Graph<V extends Comparable> {
         Vertex v = new Vertex(value);
         vertices.put(value, v);
         return true;
+    }
+
+    /**
+     * Removes vertex corresponding to the given value from the graph.
+     * @param value     Value of the vertex to remove.
+     */
+    public void remove(V value) {
+        if (!contains(value)) {
+            return;
+        }
+
+        Vertex vertex = vertices.get(value);
+
+        for (Map.Entry<V, Vertex> pair : vertices.entrySet()) {
+            Vertex v = (Vertex)pair.getValue();
+            v.removeEdge(vertex);
+        }
+
+        vertices.remove(value);
     }
 
     /**
