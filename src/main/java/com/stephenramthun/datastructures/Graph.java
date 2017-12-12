@@ -116,22 +116,43 @@ public class Graph<V extends Comparable> {
         return vertex1.hasEdge(vertex2);
     }
 
+    /**
+     * Checks if graph is directed.
+     * @return  True if the graph is directed.
+     */
     public boolean isDirected() {
         return directed;
     }
 
+    /**
+     * Checks if the edges of the graph are weighted.
+     * @return  True if the edges are weighted.
+     */
     public boolean isWeighted() {
         return weighted;
     }
 
+    /**
+     * Decides whether the graph should be directed.
+     * @param directed  Flag deciding if the graph should be directed.
+     */
     public void setDirected(boolean directed) {
         this.directed = directed;
     }
 
+    /**
+     * Decides whether the edges in the graph should be weighted.
+     * @param weighted  Flag deciding if the edges in the graph should be
+     *                  weighted.
+     */
     public void setWeighted(boolean weighted) {
         this.weighted = weighted;
     }
 
+    /**
+     * Returns the number of vertices in the graph.
+     * @return  The number of vertices in the graph.
+     */
     public int size() {
         return vertices.size();
     }
