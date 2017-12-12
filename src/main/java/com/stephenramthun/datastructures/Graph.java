@@ -96,6 +96,11 @@ public class Graph<V extends Comparable> {
         return true;
     }
 
+    /**
+     * Removes an edge between two vertices if it exists.
+     * @param v1    The out-vertex of the edge.
+     * @param v2    The in-vertex of the edge.
+     */
     public void removeEdge(V v1, V v2) {
         if (!contains(v1) || !contains(v2)) {
             return;
