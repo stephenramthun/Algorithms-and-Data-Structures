@@ -35,8 +35,14 @@ class TopologicalSortTest {
         graph.addEdge(3, 8);
         graph.addEdge(3, 4);
 
+        // Should be cycle free, e.g. possible to make topological ordering.
         LinkedList<Vertex> topSort = TopologicalSort.sort(graph);
         assertNotNull(topSort);
         assertEquals(topSort.size(), graph.size());
+
+        // Adding cycle.
+        graph.addEdge(5, 1);
+        topSort = TopologicalSort.sort(graph);
+        assertNull(topSort);
     }
 }
