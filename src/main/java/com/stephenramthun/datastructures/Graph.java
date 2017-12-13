@@ -1,5 +1,6 @@
 package com.stephenramthun.datastructures;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -193,5 +194,21 @@ public class Graph<V extends Comparable> {
      */
     public int size() {
         return vertices.size();
+    }
+
+    /**
+     * Returns a Collection of the vertices in the graph.
+     * @return  A Collection of the vertices in the graph.
+     */
+    public Collection<Vertex> getVertices() {
+        return vertices.values();
+    }
+
+    /**
+     * Calculates the in-degree for each vertex in the graph. The result is
+     * stored in a local variable in each vertex.
+     */
+    public void calculateInDegrees() {
+
     }
 }
