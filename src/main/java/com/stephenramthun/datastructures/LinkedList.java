@@ -42,6 +42,14 @@ public class LinkedList<T extends Comparable> {
     }
 
     /**
+     * Checks if the list is empty.
+     * @return  True if the list is empty.
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
      * Adds an item to the end of the list.
      *
      * @param item  Item to add to the end of the list.
