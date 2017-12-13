@@ -61,6 +61,21 @@ public class Vertex<V extends Comparable> implements Comparable {
     }
 
     /**
+     * Increments the in-degree of this Vertex. Used in graph algorithms, e.g.
+     * finding a topological ordering of the vertices in a graph.
+     */
+    public void incementInDegree() {
+        inDegree++;
+    }
+
+    /**
+     * Sets the indegree of this Vertex to 0.
+     */
+    public void resetInDegree() {
+        inDegree = 0;
+    }
+
+    /**
      * Return the value held by this Vertex.
      * @return  The value held by this Vertex.
      */
