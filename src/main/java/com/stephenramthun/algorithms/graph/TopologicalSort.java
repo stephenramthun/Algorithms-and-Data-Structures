@@ -6,6 +6,14 @@ import com.stephenramthun.datastructures.LinkedList;
 
 import java.util.Collection;
 
+/**
+ * An algorithm for finding a topological ordering of the vertices in a graph.
+ * Based on Kahn's Algorithm.
+ *
+ * @author Stephen Ramthun
+ * @see <a href="https://en.wikipedia.org/wiki/Topological_sorting#Kahn.27s_algorithm">Kahn's Algorithm</a>
+ */
+
 public class TopologicalSort {
 
     /**
