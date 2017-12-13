@@ -1,12 +1,15 @@
 package com.stephenramthun.datastructures;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Implementation of a single-linked list data structure.
  *
  * @author Stephen Ramthun
  */
 
-public class LinkedList<T extends Comparable> {
+public class LinkedList<T extends Comparable> implements Iterable<T> {
 
     Node head;
     Node tail;
@@ -172,7 +175,33 @@ public class LinkedList<T extends Comparable> {
         return value;
     }
 
-    private class Node {
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator();
+    }
+
+    class ListIterator implements Iterator<T> {
+        Node cursor;
+
+        public ListIterator() {
+            this.cursor = LinkedList.this.head;
+        }
+
+        public boolean hasNext() {
+            return this.cursor != null;
+        }
+
+        public T next() {
+            if (cursor != null) {
+                T value = cursor.value;
+                cursor = cursor.next;
+                return value;
+            }
+            throw new NoSuchElementException();
+        }
+    }
+
+    class Node {
         T value;
         Node next;
 

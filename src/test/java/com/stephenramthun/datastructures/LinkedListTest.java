@@ -105,4 +105,19 @@ class LinkedListTest {
         assertNull(a.removeLast());
         assertEquals(0, a.size());
     }
+
+    @Test
+    void testIterator() {
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+        }
+
+        int count = 0;
+        for (Integer i : list) {
+            count++;
+        }
+
+        assertEquals(count, list.size());
+    }
 }
