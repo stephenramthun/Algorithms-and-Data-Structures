@@ -209,6 +209,20 @@ public class Graph<V extends Comparable> {
      * stored in a local variable in each vertex.
      */
     public void calculateInDegrees() {
+        Collection vertices = getVertices();
 
+        for (Object o : vertices) {
+            Vertex v = (Vertex)o;
+            v.resetInDegree();
+        }
+
+        for (Object o : vertices) {
+            Vertex v = (Vertex)o;
+
+            for (Object e : v.getEdges()) {
+                Vertex edge = (Vertex)e;
+                edge.incementInDegree();
+            }
+        }
     }
 }
