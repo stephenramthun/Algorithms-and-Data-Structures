@@ -27,37 +27,59 @@ class PriorityQueueTest {
     }
 
     @Test
-    void testInsert() {
+    void testAdd() {
         int expectedSize = 0;
 
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         assertNotNull(queue);
         assertEquals(expectedSize, queue.size());
 
-        queue.insert(10);
+        queue.add(10);
         assertEquals(++expectedSize, queue.size());
 
-        queue.insert(20);
+        queue.add(20);
         assertEquals(++expectedSize, queue.size());
 
-        queue.insert(150);
+        queue.add(150);
         assertEquals(++expectedSize, queue.size());
 
-        queue.insert(-25);
+        queue.add(-25);
         assertEquals(++expectedSize, queue.size());
 
-        queue.insert(50);
+        queue.add(50);
         assertEquals(++expectedSize, queue.size());
 
         assertEquals(-25, (int)queue.peek());
 
-        queue.insert(-26);
+        queue.add(-26);
         assertEquals(++expectedSize, queue.size());
         assertEquals(-26, (int)queue.peek());
 
-        queue.insert(Integer.MAX_VALUE);
+        queue.add(Integer.MAX_VALUE);
         assertEquals(++expectedSize, queue.size());
         assertEquals(-26, (int)queue.peek());
+    }
 
+    @Test
+    void testPoll() {
+        int n = 50;
+        int expectedSize = 0;
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        assertNotNull(queue);
+        assertEquals(expectedSize, queue.size());
+
+        for (int i = 0; i < n; i++) {
+            queue.add(i);
+        }
+
+        expectedSize = n;
+        assertEquals(expectedSize, queue.size());
+
+        for (int i = 0; i < n; i++) {
+            int value = queue.poll();
+            assertEquals(value, i);
+            assertEquals(--expectedSize, queue.size());
+        }
     }
 }

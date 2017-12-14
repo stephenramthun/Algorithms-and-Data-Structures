@@ -1,6 +1,6 @@
 package com.stephenramthun.datastructures;
 
-public class PriorityQueue<T extends Comparable> {
+public class PriorityQueue<T extends Comparable> implements Queue {
 
     private final int DEFAULT_SIZE      = 30;
     private final double EXPANSION_RATE = 0.5;
@@ -39,17 +39,36 @@ public class PriorityQueue<T extends Comparable> {
     }
 
     /**
+     * Removes and returns the element with the highest priority in the queue.
+     * @return  The element with the highest priority.
+     */
+    @SuppressWarnings("unchecked")
+    public T poll() {
+        if (size == 0) {
+            return null;
+        }
+
+        T value = (T)values[0];
+        size--;
+        swap(0, size);
+        values[size] = null;
+        buildHeap();
+
+        return value;
+     }
+
+    /**
      * Inserts the given value in the priority queue with priority based on the
      * natural ordering of the value inserted compared to the other values in
      * the queue.
      */
     @SuppressWarnings("unchecked")
-    public void insert(T value) {
+    public void add(Comparable value) {
         if (size == values.length) {
             expandArraySize();
         }
 
-        values[size] = (Comparable)value;
+        values[size] = value;
         int parent = parent(size);
         int child  = size;
 
@@ -97,10 +116,10 @@ public class PriorityQueue<T extends Comparable> {
     }
 
     private void buildHeap() {
-        int start = parent(values.length - 1);
+        int start = parent(size - 1);
 
         while (start >= 0) {
-            siftDown(start, values.length - 1);
+            siftDown(start, size - 1);
             start--;
         }
     }
