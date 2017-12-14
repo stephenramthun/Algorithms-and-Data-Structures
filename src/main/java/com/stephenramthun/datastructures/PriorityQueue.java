@@ -1,5 +1,14 @@
 package com.stephenramthun.datastructures;
 
+/**
+ * Implementation of a priority queue data structure.
+ * Elements in the priority queue are dequeued based on their natural order
+ * ascending, from lowest to highest. A lower natural ordering implies a higher
+ * priority.
+ *
+ * @author Stephen Ramthun
+ */
+
 public class PriorityQueue<T extends Comparable> implements Queue {
 
     private final int DEFAULT_SIZE      = 30;
