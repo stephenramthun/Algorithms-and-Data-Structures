@@ -15,5 +15,17 @@ class PriorityQueueTest {
     void testInit() {
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         assertNotNull(queue);
+
+        queue = new PriorityQueue<>(2000);
+        assertNotNull(queue);
+
+        int n = 20;
+        Integer[] integers = new Integer[n];
+
+        for (int i = 0; i < n; i++) {
+            integers[i] = i;
+        }
+
+        queue = new PriorityQueue<>(integers);
     }
 }

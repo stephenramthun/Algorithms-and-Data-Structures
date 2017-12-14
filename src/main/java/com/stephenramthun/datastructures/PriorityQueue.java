@@ -42,10 +42,12 @@ public class PriorityQueue<T extends Comparable> {
                 swap = left;
             }
 
-            comparison = values[right].compareTo(values[swap]);
+            if (right <= end) {
+                comparison = values[right].compareTo(values[swap]);
 
-            if (right <= end && comparison > 0) {
-                swap = right;
+                if (comparison > 0) {
+                    swap = right;
+                }
             }
 
             if (swap != root) {
