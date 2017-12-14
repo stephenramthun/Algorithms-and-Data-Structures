@@ -27,5 +27,41 @@ class PriorityQueueTest {
         }
 
         queue = new PriorityQueue<>(integers);
+        assertNotNull(queue);
+    }
+
+    @Test
+    void testInsert() {
+        int expectedSize = 0;
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        assertNotNull(queue);
+        assertEquals(expectedSize, queue.size());
+
+        queue.insert(10);
+        assertEquals(++expectedSize, queue.size());
+
+        queue.insert(20);
+        assertEquals(++expectedSize, queue.size());
+
+        queue.insert(150);
+        assertEquals(++expectedSize, queue.size());
+
+        queue.insert(-25);
+        assertEquals(++expectedSize, queue.size());
+
+        queue.insert(50);
+        assertEquals(++expectedSize, queue.size());
+
+        assertEquals(-25, (int)queue.peek());
+
+        queue.insert(-26);
+        assertEquals(++expectedSize, queue.size());
+        assertEquals(-26, (int)queue.peek());
+
+        queue.insert(Integer.MAX_VALUE);
+        assertEquals(++expectedSize, queue.size());
+        assertEquals(-26, (int)queue.peek());
+
     }
 }
