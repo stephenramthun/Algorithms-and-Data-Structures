@@ -1,7 +1,7 @@
 package com.stephenramthun.datastructures;
 
 /**
- * Implementation of a priority queue data structure.
+ * Implementation of a priority queue data structure based on a binary heap.
  * Elements in the priority queue are dequeued based on their natural order
  * ascending, from lowest to highest. A lower natural ordering implies a higher
  * priority.
