@@ -106,6 +106,14 @@ public class Vertex<V extends Comparable> implements Comparable {
         this.previous = previous;
     }
 
+    public double getDistance() {
+        return distance;
+    }
+
+    public Vertex getPrevious() {
+        return previous;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public int compareTo(Object v) {
@@ -114,5 +122,18 @@ public class Vertex<V extends Comparable> implements Comparable {
         if (this.distance < vertex.distance) return -1;
         if (this.distance > vertex.distance) return 1;
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("value: " + value);
+        sb.append(", dist: " + distance);
+
+        if (previous != null) {
+            sb.append(", prev: " + previous.getValue());
+        }
+
+        return sb.toString();
     }
 }

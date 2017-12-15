@@ -243,4 +243,18 @@ public class Graph<V extends Comparable> {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Graph with " + size() + " vertices:\n");
+
+        for (Map.Entry<V, Vertex> entry : vertices.entrySet()) {
+            Vertex vertex = (Vertex)entry.getValue();
+            sb.append("\t" + vertex + "\n");
+        }
+
+        return sb.toString();
+    }
 }
