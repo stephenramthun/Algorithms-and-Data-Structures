@@ -15,7 +15,7 @@ Algorithms:
   * Bubble Sort
   * Insertion Sort
   * Radix Sort (MSD)
-  
+
 Data Structures:
 * Graph (supports weights and directed edges)
 * Priority Queue
