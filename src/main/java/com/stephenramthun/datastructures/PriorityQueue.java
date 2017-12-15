@@ -106,6 +106,10 @@ public class PriorityQueue<T extends Comparable> implements Queue {
         return size;
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

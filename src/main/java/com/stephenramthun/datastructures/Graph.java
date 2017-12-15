@@ -91,6 +91,10 @@ public class Graph<V extends Comparable> {
         vertices.remove(value);
     }
 
+    public boolean addEdge(V v1, V v2) {
+        return addEdge(v1, v2, 1.0);
+    }
+
     /**
      * Adds an edge between two vertices in the graph corresponding to the given
      * values. If the graph is undirected the edge is added to both vertices,
@@ -100,7 +104,7 @@ public class Graph<V extends Comparable> {
      * @return      True if both v1 and v2 exists in the graph and we therefore
      *              were able to successfully add the edge.
      */
-    public boolean addEdge(V v1, V v2) {
+    public boolean addEdge(V v1, V v2, double distance) {
         if (!contains(v1) || !contains(v2)) {
             return false;
         }
@@ -108,10 +112,10 @@ public class Graph<V extends Comparable> {
         Vertex vertex1 = vertices.get(v1);
         Vertex vertex2 = vertices.get(v2);
 
-        vertex1.addEdge(vertex2);
+        vertex1.addEdge(vertex2, distance);
 
         if (!directed) {
-            vertex2.addEdge(vertex1);
+            vertex2.addEdge(vertex1, distance);
         }
 
         return true;
@@ -219,7 +223,7 @@ public class Graph<V extends Comparable> {
         for (Object o : vertices) {
             Vertex v = (Vertex)o;
 
-            for (Object e : v.getEdges()) {
+            for (Object e : v.getEdges().keySet()) {
                 Vertex edge = (Vertex)e;
                 edge.incementInDegree();
             }

@@ -42,7 +42,7 @@ public class TopologicalSort {
             Vertex v = (Vertex)work.removeFirst();
             sorted.add(v);
 
-            for (Object o : v.getEdges()) {
+            for (Object o : v.getEdges().keySet()) {
                 Vertex edge = (Vertex)o;
                 edge.decrementInDegree();
 

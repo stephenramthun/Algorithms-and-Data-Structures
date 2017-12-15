@@ -1,6 +1,7 @@
 package com.stephenramthun.datastructures;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Collection;
 
 /**
  * A Vertex helper class for Graph data structures.
@@ -10,21 +11,25 @@ import java.util.HashSet;
 
 public class Vertex<V extends Comparable> implements Comparable {
     V value;
-    HashSet<Vertex> edges;
     int inDegree;
+    HashMap<Vertex, Double> edges;
+    double distance;
+    Vertex previous;
 
     public Vertex(V value) {
-        this.value = value;
-        this.edges = new HashSet<>();
+        this.value    = value;
+        this.edges    = new HashMap<>();
         this.inDegree = 0;
+        this.distance = 0;
+        this.previous = null;
     }
 
     /**
      * Adds an edge from this Vertex to another.
      * @param v     Vertex to add as an edge.
      */
-    public void addEdge(Vertex v) {
-        edges.add(v);
+    public void addEdge(Vertex v, double distance) {
+        edges.put(v, distance);
     }
 
     /**
@@ -32,7 +37,9 @@ public class Vertex<V extends Comparable> implements Comparable {
      * @param v     Vertex to remove as an edge.
      */
     public void removeEdge(Vertex v) {
-        edges.remove(v);
+        if (edges.containsKey(v)) {
+            edges.remove(v);
+        }
     }
 
     /**
@@ -41,7 +48,7 @@ public class Vertex<V extends Comparable> implements Comparable {
      * @return      True if the edge exists.
      */
     public boolean hasEdge(Vertex v) {
-        return edges.contains(v);
+        return edges.containsKey(v);
     }
 
     /**
@@ -84,17 +91,28 @@ public class Vertex<V extends Comparable> implements Comparable {
     }
 
     /**
-     * Returns the set of edges from this Vertex.
-     * @return  The set of edges from this Vertex.
+     * Returns the map of edges from this Vertex with distances.
+     * @return  The map of edges from this Vertex with distances.
      */
-    public HashSet<Vertex> getEdges() {
+    public HashMap<Vertex, Double> getEdges() {
         return edges;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public void setPrevious(Vertex previous) {
+        this.previous = previous;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public int compareTo(Object v) {
         Vertex vertex = (Vertex)v;
-        return this.value.compareTo(vertex.value);
+
+        if (this.distance < vertex.distance) return -1;
+        if (this.distance > vertex.distance) return 1;
+        return 0;
     }
 }
