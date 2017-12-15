@@ -7,6 +7,16 @@ import com.stephenramthun.datastructures.PriorityQueue;
 import java.util.HashSet;
 import java.util.Map;
 
+/**
+ * Single source shortest path algorithm for graphs with non-negative weights,
+ * based on Dijkstra's algorithm. Uses a priority queue implementation to keep
+ * track of the currently considered edges with smallest weights at each step
+ * of the algorithm.
+ *
+ * @author Stephen Ramthun
+ * @see <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's Algorithm<a/>
+ */
+
 public class Dijkstra {
 
     /**
@@ -46,7 +56,7 @@ public class Dijkstra {
                 if (distance < vertex.getDistance()) {
                     vertex.setDistance(distance);
                     vertex.setPrevious(v);
-                    // If vertex not in queue, add to queue
+
                     if (!inQueue.contains(vertex)) {
                         queue.add(vertex);
                         inQueue.add(vertex);
