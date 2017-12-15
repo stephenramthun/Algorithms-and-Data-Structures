@@ -1,7 +1,6 @@
 package com.stephenramthun.algorithms.graph;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -22,8 +21,6 @@ class DijkstraTest {
         }
 
         Graph<Integer> graph = new Graph<Integer>(values);
-        graph.setDirected(true);
-        graph.setWeighted(true);
         graph.addEdge(1, 5, 5.0);
         graph.addEdge(1, 2, 10.0);
         graph.addEdge(5, 2, 2.0);
@@ -37,8 +34,7 @@ class DijkstraTest {
         Vertex source = graph.getVertex(1);
         assertNotNull(source);
 
-        boolean run = Dijkstra.run(graph, source);
-        assertTrue(run);
+        Dijkstra.run(graph, source);
 
         Vertex v = graph.getVertex(1);
         assertEquals(0, v.getDistance());
