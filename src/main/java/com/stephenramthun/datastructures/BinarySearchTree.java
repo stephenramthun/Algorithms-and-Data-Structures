@@ -1,5 +1,11 @@
 package com.stephenramthun.datastructures;
 
+/**
+ * Implementation of a non-balancing binary search tree structure.
+ *
+ * @author Stephen Ramthun
+ */
+
 public class BinarySearchTree<T extends Comparable> implements Collection {
 
     Node root;
