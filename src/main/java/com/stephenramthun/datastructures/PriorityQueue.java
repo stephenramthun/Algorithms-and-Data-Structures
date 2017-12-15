@@ -106,6 +106,10 @@ public class PriorityQueue<T extends Comparable> implements Queue {
         return size;
     }
 
+    /**
+     * Checks if queue is empty.
+     * @return  True if there are no elements in the queue.
+     */
     public boolean isEmpty() {
         return size == 0;
     }
