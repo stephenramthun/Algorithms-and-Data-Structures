@@ -53,13 +53,13 @@ public class Graph<V extends Comparable> {
      * @return          True if graph contains the value.
      */
     public boolean contains(V value) {
-        return vertices.get(value) != null;
+        return vertices.containsKey(value);
     }
 
     /**
      * Adds given value to the graph as a vertex.
      * @param value     Value to add to the graph.
-     * @return          True if value was not allready present in graph.
+     * @return          True if value is not already present in graph.
      */
     @SuppressWarnings("unchecked")
     public boolean add(V value) {
