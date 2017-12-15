@@ -21,3 +21,4 @@ Data Structures:
 * Priority Queue
 * Linked List
 * Array List
+* Binary Search Tree
