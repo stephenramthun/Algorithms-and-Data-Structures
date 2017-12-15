@@ -9,12 +9,15 @@ import java.util.Map;
 
 public class Dijkstra {
 
+    /**
+     * Finds the shortest paths from a source vertex to all other vertices in
+     * the graph.
+     * @param graph     Graph to use as basis for search.
+     * @param source    Start vertex from where the distances are
+     *                  calculated.
+     */
     @SuppressWarnings("unchecked")
-    public static boolean run(Graph graph, Vertex source) {
-        if (!graph.isDirected() || !graph.isWeighted()) {
-            return false;
-        }
-
+    public static void run(Graph graph, Vertex source) {
         PriorityQueue<Vertex> queue = new PriorityQueue<>();
         HashSet<Vertex> inQueue = new HashSet<>();
 
@@ -51,7 +54,5 @@ public class Dijkstra {
                 }
             }
         }
-
-        return true;
     }
 }
