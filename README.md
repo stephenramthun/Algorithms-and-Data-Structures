@@ -1,7 +1,7 @@
 # Algorithms-and-Data-Structures
 Implementations of various algorithms and data structures in Java, for personal and educational use. All implementations have accompanying tests and are working as expected.
 
-
+---
 
 ### Currently implemented:
 
