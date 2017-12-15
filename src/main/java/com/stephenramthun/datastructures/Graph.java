@@ -48,6 +48,20 @@ public class Graph<V extends Comparable> {
     }
 
     /**
+     * Returns a given values corresponding Vertex, if it exists.
+     * @param value     Value with corresponding Vertex.
+     * @return          Vertex associated with given value, if it exists.
+     *                  Returns null if not.
+     */
+    public Vertex getVertex(V value) {
+        if (contains(value)) {
+            return vertices.get(value);
+        }
+
+        return null;
+    }
+
+    /**
      * Checks if graph contains given value.
      * @param value     Value to check that graph contains.
      * @return          True if graph contains the value.
