@@ -2,15 +2,12 @@ package com.stephenramthun.algorithms.graph;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
 import com.stephenramthun.datastructures.Graph;
-import com.stephenramthun.datastructures.LinkedList;
 import com.stephenramthun.datastructures.Vertex;
 
 class DijkstraTest {
@@ -40,7 +37,8 @@ class DijkstraTest {
         Vertex source = graph.getVertex(1);
         assertNotNull(source);
 
-        Dijkstra.run(graph, source);
+        boolean run = Dijkstra.run(graph, source);
+        assertTrue(run);
 
         Vertex v = graph.getVertex(1);
         assertEquals(0, v.getDistance());
