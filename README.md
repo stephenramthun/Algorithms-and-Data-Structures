@@ -4,7 +4,7 @@ Implementations of various algorithms and data structures in Java, for personal 
 ## Currently implemented:
 Algorithms:
 * Graph:
-  * Dijkstra
+  * Single Source Shortest Paths (Dijkstra)
   * Topological Ordering (Kahn)
 * Search:
   * Binary Search
