@@ -1,6 +1,9 @@
 package com.stephenramthun.datastructures;
 
-public class ArrayList<T extends Comparable> implements List, Collection {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ArrayList<T extends Comparable> implements List, Collection, Iterable<T> {
 
     private final int DEFAULT_SIZE      = 30;
     private final double EXPANSION_RATE = 0.5;
@@ -13,6 +16,10 @@ public class ArrayList<T extends Comparable> implements List, Collection {
         this.size     = 0;
     }
 
+    /**
+     * Initializes an ArrayList with initial capacity n.
+     * @param n     Initial capacity.
+     */
     public ArrayList(int n) {
         this.elements = new Comparable[n];
         this.size     = 0;
@@ -32,13 +39,34 @@ public class ArrayList<T extends Comparable> implements List, Collection {
         return elements[index];
     }
 
+    /**
+     * Inserts an element at the specified position if possible.
+     * @param element   Element to add to the List.
+     * @param index     The position in the List where the element should be
+     *                  inserted.
+     * @return          True if insertion was successful, false if index
+     *                  exceeds the current size of the List.
+     */
+    public boolean insert(Comparable element, int index) {
+        if (index >= size) {
+            return false;
+        }
+
+        elements[index] = element;
+        return true;
+    }
+
+    /**
+     * Adds an element to the end of the List.
+     * @param element     Element to add to the List.
+     */
     @Override
-    public void add(Comparable value) {
+    public void add(Comparable element) {
         if (size >= elements.length) {
             expandArraySize();
         }
 
-        elements[size] = value;
+        elements[size] = element;
         size++;
     }
 
@@ -67,5 +95,52 @@ public class ArrayList<T extends Comparable> implements List, Collection {
         }
 
         elements = array;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+
+        for (int i = 0; i < size - 1; i++) {
+            sb.append(elements[i]);
+            sb.append(", ");
+        }
+
+        if (size > 0) {
+            sb.append(elements[size - 1]);
+        }
+
+        sb.append("]");
+        return sb.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayListIterator();
+    }
+
+
+    class ArrayListIterator implements Iterator<T> {
+        int cursor;
+
+        public ArrayListIterator() {
+            this.cursor = 0;
+        }
+
+        public boolean hasNext() {
+            return this.cursor < ArrayList.this.size;
+        }
+
+        @SuppressWarnings("unchecked")
+        public T next() {
+            if (hasNext()) {
+                T value = (T)ArrayList.this.elements[cursor];
+                cursor++;
+                return value;
+            }
+
+            throw new NoSuchElementException();
+        }
     }
 }
