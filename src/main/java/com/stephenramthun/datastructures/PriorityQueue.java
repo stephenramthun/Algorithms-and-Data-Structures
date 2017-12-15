@@ -9,7 +9,7 @@ package com.stephenramthun.datastructures;
  * @author Stephen Ramthun
  */
 
-public class PriorityQueue<T extends Comparable> implements Queue {
+public class PriorityQueue<T extends Comparable> implements Queue, Collection {
 
     private final int DEFAULT_SIZE      = 30;
     private final double EXPANSION_RATE = 0.5;
