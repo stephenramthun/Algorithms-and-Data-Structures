@@ -48,7 +48,7 @@ public class ArrayList<T extends Comparable> implements List, Collection, Iterab
      *                  exceeds the current size of the List.
      */
     public boolean insert(Comparable element, int index) {
-        if (index >= size) {
+        if (index >= size || index < 0) {
             return false;
         }
 
