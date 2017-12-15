@@ -20,3 +20,4 @@ Data Structures:
 * Graph (supports weights and directed edges)
 * Priority Queue
 * Linked List
+* Array List
