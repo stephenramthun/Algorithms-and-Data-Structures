@@ -1,7 +1,10 @@
 package com.stephenramthun.datastructures;
 
 /**
- * Implementation of a non-balancing binary search tree structure.
+ * Implementation of a non-balancing binary search tree structure. Attempting
+ * to insert multiple values that are equal to each other according to their
+ * natural order will not be successful, as this implementation does not
+ * support multiple values that are equal to each other.
  *
  * @author Stephen Ramthun
  */
