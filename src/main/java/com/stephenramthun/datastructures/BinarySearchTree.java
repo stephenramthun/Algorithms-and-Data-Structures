@@ -139,7 +139,9 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
 
             if (node.isLeaf()) {
 
-                if (node == left) {
+                if (node == root) {
+                    root = null;
+                } else if (node == left) {
                     left = null;
                 } else {
                     right = null;
@@ -148,17 +150,39 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
             } else if (node.right == null && node.left != null) {
 
                 if (node == left) {
-                    left = node.left;
+
+                    if (node == root) {
+                        root = node.left;
+                    } else {
+                        left = node.left;
+                    }
+
                 } else {
-                    right = node.left;
+
+                    if (node == root) {
+                        root = node.left;
+                    } else {
+                        right = node.left;
+                    }
                 }
 
             } else if (node.right != null && node.left == null) {
 
                 if (node == left) {
-                    left = node.right;
+
+                    if (node == root) {
+                        root = node.right;
+                    } else {
+                        left = node.right;
+                    }
+
                 } else {
-                    right = node.right;
+
+                    if (node == root) {
+                        root = node.right;
+                    } else {
+                        right = node.right;
+                    }
                 }
 
             } else {

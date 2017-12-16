@@ -84,5 +84,15 @@ class BinarySearchTreeTest {
         assertFalse(tree.contains(expected));
         assertTrue(tree.contains(11));
         assertTrue(tree.contains(15));
+
+        assertTrue(tree.remove(15));
+        assertFalse(tree.contains(15));
+        assertEquals(--size, tree.size());
+        assertTrue(tree.remove(10));
+        assertFalse(tree.contains(10));
+        assertEquals(--size, tree.size());
+        assertTrue(tree.remove(11));
+        assertFalse(tree.contains(11));
+        assertEquals(--size, tree.size());
     }
 }
