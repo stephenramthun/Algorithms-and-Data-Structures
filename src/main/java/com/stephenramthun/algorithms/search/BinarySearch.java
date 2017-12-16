@@ -9,13 +9,14 @@ package com.stephenramthun.algorithms.search;
 public class BinarySearch {
 
     /**
-     * Checks whether a given key exists in a sorted array.
+     * Checks whether a given key exists in a sorted array, and returns the
+     * index of the key in the array.
      *
      * @param array     Array to search for key in. Assumed sorted.
      * @param key       Key to search for in aray.
-     * @return          True if key is in array.
+     * @return          Index of key in the array if present, otherwise -1.
      */
-    public static boolean contains(int[] array, int key) {
+    public static int contains(int[] array, int key) {
         int left  = 0;
         int right = array.length - 1;
 
@@ -27,21 +28,22 @@ public class BinarySearch {
             } else if (array[mid] < key) {
                 left = mid + 1;
             } else {
-                return true;
+                return mid;
             }
         }
 
-        return false;
+        return -1;
     }
 
     /**
-     * Checks whether a given key exists in a sorted array.
+     * Checks whether a given key exists in a sorted array, and returns the
+     * index of the key in the array.
      *
      * @param array     Array to search for key in. Assumed sorted.
      * @param key       Key to search for in aray.
-     * @return          True if key is in array.
+     * @return          Index of key in the array if present, otherwise -1.
      */
-    public static boolean contains(Comparable[] array, Comparable key) {
+    public static int contains(Comparable[] array, Comparable key) {
         int left  = 0;
         int right = array.length - 1;
 
@@ -55,10 +57,10 @@ public class BinarySearch {
             } else if (comparison < 0) {
                 left = mid + 1;
             } else {
-                return true;
+                return mid;
             }
         }
 
-        return false;
+        return -1;
     }
 }
