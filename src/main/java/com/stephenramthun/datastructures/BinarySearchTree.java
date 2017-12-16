@@ -22,13 +22,49 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
      */
     @SuppressWarnings("unchecked")
     public void add(T value) {
+        boolean added = false;
+
         if (root == null) {
             root = new Node(value);
+            added = true;
         } else {
-            root.add(value);
+            added = root.add(new Node(value));
         }
 
-        size++;
+        if (added) size++;
+    }
+
+    /**
+     * Removes a value from the tree.
+     * @param value     Value to remove from the tree.
+     * @return          True if removal was successful.
+     */
+    @SuppressWarnings("unchecked")
+    public boolean remove(T value) {
+        if (root == null) {
+            return false;
+        }
+
+        Node previous = root;
+        Node current = previous;
+
+        while (current != null) {
+            int comparison = current.value.compareTo(value);
+
+            if (comparison < 0) {
+                previous = current;
+                current = current.right;
+            } else if (comparison > 0) {
+                previous = current;
+                current = current.left;
+            } else {
+                previous.remove(current);
+                size--;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -58,48 +94,131 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
         T value;
         Node left;
         Node right;
-        ArrayList<T> equals;
 
         Node(T value) {
             this.value  = value;
             this.left   = null;
             this.right  = null;
-            this.equals = new ArrayList<>();
         }
 
         @SuppressWarnings("unchecked")
-        void add(T value) {
-            int comparison = this.value.compareTo(value);
+        boolean add(Node node) {
+            int comparison = this.value.compareTo(node.value);
 
-            if (comparison > 0) {
+            if (comparison < 0) {
+
                 if (right == null) {
-                    right = new Node(value);
-                } else {
-                    right.add(value);
+                    right = node;
+                    return true;
                 }
-            } else if (comparison < 0) {
+
+                return right.add(node);
+
+            } else if (comparison > 0) {
+
                 if (left == null) {
-                    left = new Node(value);
-                } else {
-                    left.add(value);
+                    left = node;
+                    return true;
                 }
+
+                return left.add(node);
+            }
+
+            return false;
+        }
+
+        /*
+         * Recursively finds the node to remove, identifies its children if
+         * any, and replaces it with an appropriate node if necessary.
+         */
+        @SuppressWarnings("unchecked")
+        void remove(Node node) {
+
+            if (node.isLeaf()) {
+
+                if (node == left) {
+                    left = null;
+                } else {
+                    right = null;
+                }
+
+            } else if (node.right == null && node.left != null) {
+
+                if (node == left) {
+                    left = node.left;
+                } else {
+                    right = node.left;
+                }
+
+            } else if (node.right != null && node.left == null) {
+
+                if (node == left) {
+                    left = node.right;
+                } else {
+                    right = node.right;
+                }
+
             } else {
-                equals.add(value);
+                Node successor = node.successor();
+                T temp = (T)node.value;
+                node.value = successor.value;
+                successor.value = temp;
+                node.remove(successor);
             }
         }
 
+        /*
+         * Finds the successor node of this Node, which is the smallest node
+         * according to their natural ordering in the right subtree of this
+         * Node.
+         */
+        Node successor() {
+            Node current = right;
+
+            while (current != null && current.left != null) {
+                current = current.left;
+            }
+
+            return current;
+        }
+
+        /*
+         * Finds the predecessor node of this Node, which is the largest node
+         * according to their natural ordering in the left subtree of this
+         * Node.
+         */
+        Node predecessor() {
+            Node current = left;
+
+            while (current != null) {
+                current = current.right;
+            }
+
+            return current;
+        }
+
+        boolean isLeaf() {
+            return left == null && right == null;
+        }
+
+        /*
+         * Finds a Node with a value if it exists. Returns a boolean value
+         * indicating the existence of the Node.
+         */
         @SuppressWarnings("unchecked")
         boolean find(T value) {
             int comparison = this.value.compareTo(value);
 
-            if (comparison > 0) {
+            if (comparison < 0) {
+
                 if (right == null) {
                     return false;
                 }
 
                 return right.find(value);
 
-            } else if (comparison < 0) {
+            } else if (comparison > 0) {
+
                 if (left == null) {
                     return false;
                 }
@@ -107,17 +226,7 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
                 return left.find(value);
 
             } else {
-                if (this.value == value) {
-                    return true;
-                }
-
-                for (T equal : equals) {
-                    if (equal == value) {
-                        return true;
-                    }
-                }
-
-                return false;
+                return true;
             }
         }
     }
