@@ -1,6 +1,8 @@
 # Algorithms-and-Data-Structures
 Implementations of various algorithms and data structures in Java, for personal and educational use. All implementations have accompanying tests and are working as expected.
 
+[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()
+
 ## Currently implemented:
 Algorithms:
 * Graph:
