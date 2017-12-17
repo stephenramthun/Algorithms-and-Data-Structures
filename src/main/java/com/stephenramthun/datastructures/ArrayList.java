@@ -3,6 +3,12 @@ package com.stephenramthun.datastructures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Implementation of an Array List data structure.
+ *
+ * @author Stephen Ramthun
+ */
+
 public class ArrayList<T extends Comparable> implements List, Collection, Iterable<T> {
 
     private final int DEFAULT_SIZE      = 30;
