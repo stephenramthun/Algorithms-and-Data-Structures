@@ -24,3 +24,4 @@ Data Structures:
 * Linked List
 * Array List
 * Binary Search Tree
+* Red Black Tree
