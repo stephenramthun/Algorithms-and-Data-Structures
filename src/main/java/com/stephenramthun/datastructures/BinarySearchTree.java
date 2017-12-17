@@ -20,11 +20,13 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
     }
 
     /**
-     * Adds a value to the tree.
+     * Adds a value to the tree as long as the value does not already exist in
+     * tree.
      * @param value     Value to add to the tree.
+     * @return          True if value was added successfully.
      */
     @SuppressWarnings("unchecked")
-    public void add(T value) {
+    public boolean add(T value) {
         boolean added = false;
 
         if (root == null) {
@@ -35,6 +37,7 @@ public class BinarySearchTree<T extends Comparable> implements Collection {
         }
 
         if (added) size++;
+        return added;
     }
 
     /**
