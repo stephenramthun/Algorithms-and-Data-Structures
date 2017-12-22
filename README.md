@@ -19,9 +19,13 @@ Algorithms:
   * Radix Sort (MSD)
 
 Data Structures:
-* Graph (supports weights and directed edges)
-* Priority Queue
-* Linked List
-* Array List
-* Binary Search Tree
-* Red Black Tree
+* Graph:
+  * Graph (supports weights and directed edges)
+* Heap:
+  * Priority Queue
+* List:
+  * Linked List
+  * Array List
+* Tree:
+  * Binary Search Tree
+  * Red Black Tree
